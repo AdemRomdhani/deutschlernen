@@ -1,0 +1,22 @@
+{
+  "name": "deutschlernen",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "تعلّم اللغة الألمانية من العربية — من A1 إلى C2 مع ألعاب واختبارات",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^29.1.1",
+    "vite": "^5.4.11",
+    "vitest": "^4.1.10"
+  }
+}
