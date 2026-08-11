@@ -27,7 +27,8 @@ function defaultProgress() {
     examScores: {},
     gameBests: {},
     reviewWords: [],
-    activity: {}
+    activity: {},
+    osdScores: {}
   };
 }
 
@@ -206,4 +207,19 @@ export function clearReviewedWords(words) {
     const keep = new Set((words || []).map(w => w.de + "|" + w.levelCode));
     p.reviewWords = (p.reviewWords || []).filter(w => !keep.has(w.de + "|" + w.levelCode));
   });
+}
+
+/* ---------------- OSD Exams ---------------- */
+
+export function recordOSDExam(level, module, score) {
+  const pass = score >= 60;
+  updateProgress(p => {
+    p.osdScores = p.osdScores || {};
+    const key = `${level}_${module}`;
+    p.osdScores[key] = Math.max(score, p.osdScores[key] || 0);
+    p.xp += pass ? 50 : 20;
+  });
+  recordStreak();
+  recordActivity();
+  return pass;
 }

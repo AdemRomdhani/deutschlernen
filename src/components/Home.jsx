@@ -139,7 +139,7 @@ function Badges() {
   );
 }
 
-export default function Home({ onOpenLevel, onReview }) {
+export default function Home({ onOpenLevel, onReview, onOpenOSD }) {
   const progress = useProgress();
 
   return (
@@ -191,6 +191,17 @@ export default function Home({ onOpenLevel, onReview }) {
       </div>
 
       <ReviewPrompt onReview={onReview} />
+
+      <div className="section osd-banner-section">
+        <div className="osd-banner" onClick={onOpenOSD} role="button" tabIndex={0}>
+          <div className="osd-banner-icon">🎓</div>
+          <div className="osd-banner-text">
+            <h3>OSD Prüfung — امتحان ألماني معتمد</h3>
+            <p>اختبر مستواك في التحدث والاستماع والقراءة والكتابة</p>
+          </div>
+          <div className="osd-banner-arrow">←</div>
+        </div>
+      </div>
 
       <div className="section">
         <div className="section-head">
