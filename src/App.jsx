@@ -228,13 +228,13 @@ export default function App() {
       content = <CulturalContext onBack={goHome} />;
       break;
     case "business":
-      content = <BusinessGerman level={LEVELS[nav.level]} goBack={backToTraining} />;
+      content = <BusinessGerman level={LEVELS[nav.level]?.code} goBack={backToTraining} />;
       break;
     case "shadowing":
-      content = <ShadowingTechnique level={LEVELS[nav.level]} goBack={backToTraining} />;
+      content = <ShadowingTechnique level={LEVELS[nav.level]?.code} goBack={backToTraining} />;
       break;
     case "realworld":
-      content = <RealWorldContent level={LEVELS[nav.level]} goBack={backToTraining} />;
+      content = <RealWorldContent level={LEVELS[nav.level]?.code} goBack={backToTraining} />;
       break;
     default:
       content = null;
