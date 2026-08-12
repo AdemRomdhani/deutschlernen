@@ -5,7 +5,7 @@
 import { useSyncExternalStore } from "react";
 import { LEVELS, nextReviewInterval } from "./data.js";
 
-const STORAGE_KEY = "deutschlernen_progress_v3";
+const STORAGE_KEY = "deutschlernen_progress_v4";
 
 function load() {
   try {
@@ -28,7 +28,13 @@ function defaultProgress() {
     gameBests: {},
     reviewWords: [],
     activity: {},
-    osdScores: {}
+    osdScores: {},
+    lives: 5,
+    achievements: [],
+    customLists: { lists: [] },
+    weeklyStats: { wordsThisWeek: 0, gamesThisWeek: 0, weekStart: null },
+    mistakes: [],
+    difficultyLevel: 3
   };
 }
 
@@ -222,4 +228,122 @@ export function recordOSDExam(level, module, score) {
   recordStreak();
   recordActivity();
   return pass;
+}
+
+/* ---------------- Lives ---------------- */
+
+export function loseLife() {
+  updateProgress(p => {
+    if (p.lives > 0) p.lives -= 1;
+  });
+}
+
+export function resetLives() {
+  updateProgress(p => {
+    p.lives = 5;
+  });
+}
+
+export function getLives() {
+  return getProgress().lives;
+}
+
+/* ---------------- Achievements ---------------- */
+
+export function unlockAchievement(id) {
+  updateProgress(p => {
+    if (!p.achievements.includes(id)) p.achievements.push(id);
+  });
+}
+
+export function getAchievements() {
+  return getProgress().achievements;
+}
+
+/* ---------------- Custom Lists ---------------- */
+
+export function createCustomList(name) {
+  const id = "list_" + Date.now();
+  updateProgress(p => {
+    p.customLists.lists.push({ id, name, words: [] });
+  });
+  return id;
+}
+
+export function addWordToList(listId, word) {
+  updateProgress(p => {
+    const list = p.customLists.lists.find(l => l.id === listId);
+    if (list && !list.words.find(w => w.de === word.de)) list.words.push({ de: word.de, ar: word.ar });
+  });
+}
+
+export function removeWordFromList(listId, wordDe) {
+  updateProgress(p => {
+    const list = p.customLists.lists.find(l => l.id === listId);
+    if (list) list.words = list.words.filter(w => w.de !== wordDe);
+  });
+}
+
+export function deleteCustomList(listId) {
+  updateProgress(p => {
+    p.customLists.lists = p.customLists.lists.filter(l => l.id !== listId);
+  });
+}
+
+export function getCustomLists() {
+  return getProgress().customLists.lists;
+}
+
+/* ---------------- Weekly Stats ---------------- */
+
+export function recordWeeklyStat(type) {
+  updateProgress(p => {
+    const now = new Date();
+    const dayOfWeek = now.getDay();
+    const monday = new Date(now);
+    monday.setDate(now.getDate() - ((dayOfWeek + 6) % 7));
+    monday.setHours(0, 0, 0, 0);
+    const weekStart = monday.toISOString();
+
+    if (p.weeklyStats.weekStart !== weekStart) {
+      p.weeklyStats.wordsThisWeek = 0;
+      p.weeklyStats.gamesThisWeek = 0;
+      p.weeklyStats.weekStart = weekStart;
+    }
+
+    if (type === "word") p.weeklyStats.wordsThisWeek += 1;
+    else if (type === "game") p.weeklyStats.gamesThisWeek += 1;
+  });
+}
+
+/* ---------------- Mistakes ---------------- */
+
+export function recordMistake(word) {
+  updateProgress(p => {
+    const existing = p.mistakes.find(m => m.de === word.de);
+    if (existing) {
+      existing.count += 1;
+    } else {
+      p.mistakes.push({ de: word.de, ar: word.ar, game: word.game || "", count: 1 });
+    }
+  });
+}
+
+export function removeMistake(wordDe) {
+  updateProgress(p => {
+    p.mistakes = p.mistakes.filter(m => m.de !== wordDe);
+  });
+}
+
+export function getMistakes() {
+  return getProgress().mistakes;
+}
+
+/* ---------------- Difficulty Level ---------------- */
+
+export function adjustDifficulty(direction) {
+  updateProgress(p => {
+    if (direction === "up" && p.difficultyLevel < 5) p.difficultyLevel += 1;
+    else if (direction === "down" && p.difficultyLevel > 1) p.difficultyLevel -= 1;
+  });
 }

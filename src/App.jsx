@@ -32,8 +32,25 @@ import TrueFalseGame from "./components/games/TrueFalseGame.jsx";
 import SentenceBuilder from "./components/games/SentenceBuilder.jsx";
 import Dialogue from "./components/games/Dialogue.jsx";
 import Pronounce from "./components/games/Pronounce.jsx";
+import ConjugationGame from "./components/games/ConjugationGame.jsx";
+import CaseChallenge from "./components/games/CaseChallenge.jsx";
+import WordOrderPuzzle from "./components/games/WordOrderPuzzle.jsx";
+import OppositesGame from "./components/games/OppositesGame.jsx";
+import PluralFormsGame from "./components/games/PluralFormsGame.jsx";
+import MinimalPairs from "./components/MinimalPairs.jsx";
+import IdiomsGame from "./components/IdiomsGame.jsx";
+import NewspaperReading from "./components/NewspaperReading.jsx";
+import KaraokeMode from "./components/KaraokeMode.jsx";
+import Phrasebook from "./components/Phrasebook.jsx";
+import CulturalNotes from "./components/CulturalNotes.jsx";
+import AITutorChat from "./components/AITutorChat.jsx";
+import PeerReview from "./components/PeerReview.jsx";
+import CustomWordLists from "./components/CustomWordLists.jsx";
+import ProgressReport from "./components/ProgressReport.jsx";
+import MistakeTracker from "./components/MistakeTracker.jsx";
+import StudyGroups from "./components/StudyGroups.jsx";
 import { LEVELS } from "./data.js";
-import { recordStreak, isLevelUnlocked, recordOSDExam } from "./store.js";
+import { recordStreak, isLevelUnlocked, recordOSDExam, recordExam } from "./store.js";
 
 const GAME_MAP = {
   match: MatchGame,
@@ -43,7 +60,12 @@ const GAME_MAP = {
   truefalse: TrueFalseGame,
   sentence: SentenceBuilder,
   dialogue: Dialogue,
-  pronounce: Pronounce
+  pronounce: Pronounce,
+  conjugation: ConjugationGame,
+  casechallenge: CaseChallenge,
+  wordorder: WordOrderPuzzle,
+  opposites: OppositesGame,
+  plurals: PluralFormsGame
 };
 
 export default function App() {
@@ -104,6 +126,20 @@ export default function App() {
   const backToTraining = () => setNav(n => ({ ...n, view: "training" }));
   const backFromTraining = () => goHome();
 
+  // New feature navigation
+  const openMinimalPairs = () => setNav(n => ({ ...n, view: "minimal-pairs" }));
+  const openIdioms = () => setNav(n => ({ ...n, view: "idioms" }));
+  const openNewspaper = () => setNav(n => ({ ...n, view: "newspaper" }));
+  const openKaraoke = () => setNav(n => ({ ...n, view: "karaoke" }));
+  const openPhrasebook = () => setNav(n => ({ ...n, view: "phrasebook" }));
+  const openCulturalNotes = () => setNav(n => ({ ...n, view: "cultural-notes" }));
+  const openAITutor = () => setNav(n => ({ ...n, view: "ai-tutor" }));
+  const openPeerReview = () => setNav(n => ({ ...n, view: "peer-review" }));
+  const openCustomLists = () => setNav(n => ({ ...n, view: "custom-lists" }));
+  const openProgressReport = () => setNav(n => ({ ...n, view: "progress-report" }));
+  const openMistakes = () => setNav(n => ({ ...n, view: "mistake-tracker" }));
+  const openStudyGroups = () => setNav(n => ({ ...n, view: "study-groups" }));
+
   let content;
   switch (nav.view) {
     case "home":
@@ -161,6 +197,66 @@ export default function App() {
               <span className="training-name">Business German</span>
               <span className="training-ar">الألمانية المهنية</span>
             </div>
+            <div className="training-card" onClick={openMinimalPairs}>
+              <span className="training-icon">🔊</span>
+              <span className="training-name">Minimal Pairs</span>
+              <span className="training-ar">أزواج الأصوات</span>
+            </div>
+            <div className="training-card" onClick={openIdioms}>
+              <span className="training-icon">💬</span>
+              <span className="training-name">Idioms & Sayings</span>
+              <span className="training-ar">الأمثال والأقوال</span>
+            </div>
+            <div className="training-card" onClick={openNewspaper}>
+              <span className="training-icon">📰</span>
+              <span className="training-name">Newspaper Reading</span>
+              <span className="training-ar">قراءة جرائد</span>
+            </div>
+            <div className="training-card" onClick={openKaraoke}>
+              <span className="training-icon">🎤</span>
+              <span className="training-name">Karaoke Mode</span>
+              <span className="training-ar">وضع الكاريوكي</span>
+            </div>
+            <div className="training-card" onClick={openPhrasebook}>
+              <span className="training-icon">📚</span>
+              <span className="training-name">Phrasebook</span>
+              <span className="training-ar">دليل العبارات</span>
+            </div>
+            <div className="training-card" onClick={openCulturalNotes}>
+              <span className="training-icon">🇩🇪</span>
+              <span className="training-name">Cultural Notes</span>
+              <span className="training-ar">ملاحظات ثقافية</span>
+            </div>
+            <div className="training-card" onClick={openAITutor}>
+              <span className="training-icon">🤖</span>
+              <span className="training-name">AI Tutor</span>
+              <span className="training-ar">المدرس الذكي</span>
+            </div>
+            <div className="training-card" onClick={openPeerReview}>
+              <span className="training-icon">✍️</span>
+              <span className="training-name">Writing Practice</span>
+              <span className="training-ar">تدريب الكتابة</span>
+            </div>
+            <div className="training-card" onClick={openCustomLists}>
+              <span className="training-icon">📋</span>
+              <span className="training-name">Custom Lists</span>
+              <span className="training-ar">قوائم مخصصة</span>
+            </div>
+            <div className="training-card" onClick={openProgressReport}>
+              <span className="training-icon">📊</span>
+              <span className="training-name">Progress Report</span>
+              <span className="training-ar">تقرير التقدم</span>
+            </div>
+            <div className="training-card" onClick={openMistakes}>
+              <span className="training-icon">❌</span>
+              <span className="training-name">Mistake Tracker</span>
+              <span className="training-ar">تتبع الأخطاء</span>
+            </div>
+            <div className="training-card" onClick={openStudyGroups}>
+              <span className="training-icon">👥</span>
+              <span className="training-name">Study Groups</span>
+              <span className="training-ar">مجموعات الدراسة</span>
+            </div>
           </div>
         </div>
       );
@@ -173,7 +269,7 @@ export default function App() {
       break;
     case "game": {
       const Game = GAME_MAP[nav.game];
-      content = <Game levelIdx={nav.level} onBack={backToLevel} onReplay={() => setNav(n => ({ ...n, view: "game", game: n.game }))} />;
+      content = Game ? <Game levelIdx={nav.level} onBack={backToLevel} onReplay={() => setNav(n => ({ ...n, view: "game", game: n.game }))} /> : null;
       break;
     }
     case "exam":
@@ -235,6 +331,42 @@ export default function App() {
       break;
     case "realworld":
       content = <RealWorldContent level={LEVELS[nav.level]?.code} goBack={backToTraining} />;
+      break;
+    case "minimal-pairs":
+      content = <MinimalPairs levelIdx={nav.level} onBack={backToTraining} onComplete={(score) => goHome()} />;
+      break;
+    case "idioms":
+      content = <IdiomsGame levelIdx={nav.level} onBack={backToTraining} onComplete={(score) => goHome()} />;
+      break;
+    case "newspaper":
+      content = <NewspaperReading levelIdx={nav.level} onBack={backToTraining} onComplete={(score) => goHome()} />;
+      break;
+    case "karaoke":
+      content = <KaraokeMode levelIdx={nav.level} onBack={backToTraining} onComplete={() => goHome()} />;
+      break;
+    case "phrasebook":
+      content = <Phrasebook onBack={backToTraining} />;
+      break;
+    case "cultural-notes":
+      content = <CulturalNotes onBack={goHome} />;
+      break;
+    case "ai-tutor":
+      content = <AITutorChat onBack={backToTraining} />;
+      break;
+    case "peer-review":
+      content = <PeerReview levelIdx={nav.level} onBack={backToTraining} onComplete={(score) => goHome()} />;
+      break;
+    case "custom-lists":
+      content = <CustomWordLists onBack={backToTraining} />;
+      break;
+    case "progress-report":
+      content = <ProgressReport onBack={goHome} />;
+      break;
+    case "mistake-tracker":
+      content = <MistakeTracker onBack={backToTraining} />;
+      break;
+    case "study-groups":
+      content = <StudyGroups onBack={goHome} />;
       break;
     default:
       content = null;
