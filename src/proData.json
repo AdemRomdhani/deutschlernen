@@ -1,0 +1,1645 @@
+{
+  "GRAMMAR_INTERACTIVE": {
+    "A1": [
+      {
+        "level": "A1",
+        "sentence": "Ich bin ein Student.",
+        "parts": [
+          {
+            "word": "Ich",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "bin",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "ein",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Student",
+            "role": "predicate noun",
+            "correctCase": "nominative"
+          }
+        ],
+        "question": "Welchen Fall hat 'Ich'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Nominativ"
+      },
+      {
+        "level": "A1",
+        "sentence": "Ich sehe den Hund.",
+        "parts": [
+          {
+            "word": "Ich",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "sehe",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "den",
+            "role": "article",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "Hund",
+            "role": "direct object",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall hat 'den Hund'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Akkusativ"
+      },
+      {
+        "level": "A1",
+        "sentence": "Ich gebe dem Mann das Buch.",
+        "parts": [
+          {
+            "word": "Ich",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "gebe",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "dem",
+            "role": "article",
+            "correctCase": "dative"
+          },
+          {
+            "word": "Mann",
+            "role": "indirect object",
+            "correctCase": "dative"
+          },
+          {
+            "word": "das",
+            "role": "article",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "Buch",
+            "role": "direct object",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall hat 'dem Mann'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      },
+      {
+        "level": "A1",
+        "sentence": "Das Auto des Mannes ist groß.",
+        "parts": [
+          {
+            "word": "Das",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Auto",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Mannes",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'des Mannes'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "A1",
+        "sentence": "Die Frau liest die Zeitung.",
+        "parts": [
+          {
+            "word": "Die",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Frau",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "liest",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "die",
+            "role": "article",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "Zeitung",
+            "role": "direct object",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall hat 'die Zeitung'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Akkusativ"
+      },
+      {
+        "level": "A1",
+        "sentence": "Wir spielen mit dem Ball.",
+        "parts": [
+          {
+            "word": "Wir",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "spielen",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "mit",
+            "role": "preposition",
+            "correctCase": "dative"
+          },
+          {
+            "word": "dem",
+            "role": "article",
+            "correctCase": "dative"
+          },
+          {
+            "word": "Ball",
+            "role": "object",
+            "correctCase": "dative"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'mit'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      },
+      {
+        "level": "A1",
+        "sentence": "Er kauft einen Apfel.",
+        "parts": [
+          {
+            "word": "Er",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "kauft",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "einen",
+            "role": "article",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "Apfel",
+            "role": "direct object",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall hat 'einen Apfel'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Akkusativ"
+      },
+      {
+        "level": "A1",
+        "sentence": "Ich wohne in Berlin.",
+        "parts": [
+          {
+            "word": "Ich",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "wohne",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "in",
+            "role": "preposition",
+            "correctCase": "dative"
+          },
+          {
+            "word": "Berlin",
+            "role": "object",
+            "correctCase": "dative"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'in' (wo)?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      },
+      {
+        "level": "A1",
+        "sentence": "Der Hund bellt laut.",
+        "parts": [
+          {
+            "word": "Der",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Hund",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "bellt",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "laut",
+            "role": "adverb",
+            "correctCase": "none"
+          }
+        ],
+        "question": "Welchen Fall hat 'Der Hund'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Nominativ"
+      },
+      {
+        "level": "A1",
+        "sentence": "Gib mir bitte das Wasser!",
+        "parts": [
+          {
+            "word": "Gib",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "mir",
+            "role": "pronoun",
+            "correctCase": "dative"
+          },
+          {
+            "word": "bitte",
+            "role": "adverb",
+            "correctCase": "none"
+          },
+          {
+            "word": "das",
+            "role": "article",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "Wasser",
+            "role": "direct object",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall hat 'mir'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      }
+    ],
+    "A2": [
+      {
+        "level": "A2",
+        "sentence": "Ich habe meinem Freund geholfen.",
+        "parts": [
+          {
+            "word": "Ich",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "habe",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "meinem",
+            "role": "possessive article",
+            "correctCase": "dative"
+          },
+          {
+            "word": "Freund",
+            "role": "indirect object",
+            "correctCase": "dative"
+          }
+        ],
+        "question": "Welchen Fall hat 'meinem Freund'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      },
+      {
+        "level": "A2",
+        "sentence": "Die Kinder spielen im Garten.",
+        "parts": [
+          {
+            "word": "Die",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Kinder",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "spielen",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "im",
+            "role": "preposition",
+            "correctCase": "dative"
+          },
+          {
+            "word": "Garten",
+            "role": "object",
+            "correctCase": "dative"
+          }
+        ],
+        "question": "Welchen Fall hat 'im Garten'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      },
+      {
+        "level": "A2",
+        "sentence": "Wir fahren nach München.",
+        "parts": [
+          {
+            "word": "Wir",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "fahren",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "nach",
+            "role": "preposition",
+            "correctCase": "dative"
+          },
+          {
+            "word": "München",
+            "role": "object",
+            "correctCase": "dative"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'nach'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      },
+      {
+        "level": "A2",
+        "sentence": "Er nimmt den Bus zur Arbeit.",
+        "parts": [
+          {
+            "word": "Er",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "nimmt",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "den",
+            "role": "article",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "Bus",
+            "role": "direct object",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall hat 'den Bus'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Akkusativ"
+      },
+      {
+        "level": "A2",
+        "sentence": "Das Geschenk meiner Schwester ist schön.",
+        "parts": [
+          {
+            "word": "Das",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Geschenk",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "meiner",
+            "role": "possessive article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Schwester",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'meiner Schwester'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "A2",
+        "sentence": "Ich warte auf den Bus.",
+        "parts": [
+          {
+            "word": "Ich",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "warte",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "auf",
+            "role": "preposition",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "den",
+            "role": "article",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "Bus",
+            "role": "object",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'warten auf'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Akkusativ"
+      },
+      {
+        "level": "A2",
+        "sentence": "Sie gibt dem Kind ein Buch.",
+        "parts": [
+          {
+            "word": "Sie",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "gibt",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "dem",
+            "role": "article",
+            "correctCase": "dative"
+          },
+          {
+            "word": "Kind",
+            "role": "indirect object",
+            "correctCase": "dative"
+          },
+          {
+            "word": "ein",
+            "role": "article",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "Buch",
+            "role": "direct object",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall hat 'dem Kind'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      },
+      {
+        "level": "A2",
+        "sentence": "Trotz des Regens gehen wir spazieren.",
+        "parts": [
+          {
+            "word": "Trotz",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Regens",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'trotz'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "A2",
+        "sentence": "Er fährt mit dem Zug nach Berlin.",
+        "parts": [
+          {
+            "word": "Er",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "fährt",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "mit",
+            "role": "preposition",
+            "correctCase": "dative"
+          },
+          {
+            "word": "dem",
+            "role": "article",
+            "correctCase": "dative"
+          },
+          {
+            "word": "Zug",
+            "role": "object",
+            "correctCase": "dative"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'mit'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      },
+      {
+        "level": "A2",
+        "sentence": "Die Frau mit dem roten Kleid kommt.",
+        "parts": [
+          {
+            "word": "Die",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Frau",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "mit",
+            "role": "preposition",
+            "correctCase": "dative"
+          },
+          {
+            "word": "dem",
+            "role": "article",
+            "correctCase": "dative"
+          },
+          {
+            "word": "roten",
+            "role": "adjective",
+            "correctCase": "dative"
+          },
+          {
+            "word": "Kleid",
+            "role": "object",
+            "correctCase": "dative"
+          }
+        ],
+        "question": "Welchen Fall hat 'dem roten Kleid'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      }
+    ],
+    "B1": [
+      {
+        "level": "B1",
+        "sentence": "Trotz des schlechten Wetters haben wir das Spiel beendet.",
+        "parts": [
+          {
+            "word": "Trotz",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Wetters",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'trotz'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B1",
+        "sentence": "Wir bedürfen Ihrer Unterstützung.",
+        "parts": [
+          {
+            "word": "Wir",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "bedürfen",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "Ihrer",
+            "role": "possessive article",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'bedürfen'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B1",
+        "sentence": "Die Ergebnisse der Studie sind überraschend.",
+        "parts": [
+          {
+            "word": "Die",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Ergebnisse",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Studie",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'der Studie'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B1",
+        "sentence": "Er gedenkt seiner verstorbenen Großmutter.",
+        "parts": [
+          {
+            "word": "Er",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "gedenkt",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "seiner",
+            "role": "possessive article",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'gedenken'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B1",
+        "sentence": "Ich erinnere mich an den Urlaub in Italien.",
+        "parts": [
+          {
+            "word": "Ich",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "erinnere",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "mich",
+            "role": "reflexive pronoun",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "an",
+            "role": "preposition",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'sich erinnern an'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Akkusativ"
+      },
+      {
+        "level": "B1",
+        "sentence": "Das Buch des Autors ist sehr beliebt.",
+        "parts": [
+          {
+            "word": "Das",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Buch",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Autors",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'des Autors'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B1",
+        "sentence": "Wir bedanken uns bei Ihnen für die Einladung.",
+        "parts": [
+          {
+            "word": "Wir",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "bedanken",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "uns",
+            "role": "reflexive pronoun",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "bei",
+            "role": "preposition",
+            "correctCase": "dative"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'bei'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Dativ"
+      },
+      {
+        "level": "B1",
+        "sentence": "Statt des Kaffees trinke ich lieber Tee.",
+        "parts": [
+          {
+            "word": "Statt",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Kaffees",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'statt'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B1",
+        "sentence": "Die Arbeit des neuen Mitarbeiters ist beeindruckend.",
+        "parts": [
+          {
+            "word": "Die",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Arbeit",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "neuen",
+            "role": "adjective",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Mitarbeiters",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'des neuen Mitarbeiters'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      }
+    ],
+    "B2": [
+      {
+        "level": "B2",
+        "sentence": "Anstatt des üblichen Frühstücks aß er nur ein Brötchen.",
+        "parts": [
+          {
+            "word": "Anstatt",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Frühstücks",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'anstatt'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B2",
+        "sentence": "Die Konsequenzen seines Handelns sind gravierend.",
+        "parts": [
+          {
+            "word": "Die",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Konsequenzen",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "seines",
+            "role": "possessive article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Handelns",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'seines Handelns'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B2",
+        "sentence": "Das Ergebnis der Untersuchung war eindeutig.",
+        "parts": [
+          {
+            "word": "Das",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Ergebnis",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Untersuchung",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'der Untersuchung'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B2",
+        "sentence": "Er wurde wegen seines Fehlers bestraft.",
+        "parts": [
+          {
+            "word": "wegen",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "seines",
+            "role": "possessive article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Fehlers",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'wegen'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B2",
+        "sentence": "Trotz der Warnungen nahmen sie das Risiko in Kauf.",
+        "parts": [
+          {
+            "word": "Trotz",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Warnungen",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'trotz'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B2",
+        "sentence": "Die Mehrheit der Bürger ist gegen den Plan.",
+        "parts": [
+          {
+            "word": "Die",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Mehrheit",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Bürger",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'der Bürger'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B2",
+        "sentence": "Wir gedenken der Opfer des Krieges.",
+        "parts": [
+          {
+            "word": "Wir",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "gedenken",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Opfer",
+            "role": "direct object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'gedenken'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B2",
+        "sentence": "Aufgrund der neuen Daten müssen wir unsere Strategie ändern.",
+        "parts": [
+          {
+            "word": "Aufgrund",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Daten",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'aufgrund'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B2",
+        "sentence": "Das Vermögen des Unternehmers wurde beschlagnahmt.",
+        "parts": [
+          {
+            "word": "Das",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Vermögen",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Unternehmers",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'des Unternehmers'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "B2",
+        "sentence": "Während des Urlaubs haben wir viele Fotos gemacht.",
+        "parts": [
+          {
+            "word": "Während",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Urlaubs",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'während'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      }
+    ],
+    "C1": [
+      {
+        "level": "C1",
+        "sentence": "Namens des Komitees begrüße ich Sie herzlich.",
+        "parts": [
+          {
+            "word": "Namens",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Komitees",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'namens'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "C1",
+        "sentence": "Bedingt durch die Umstände mussten wir den Termin verschieben.",
+        "parts": [
+          {
+            "word": "Bedingt",
+            "role": "past participle",
+            "correctCase": "none"
+          },
+          {
+            "word": "durch",
+            "role": "preposition",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "die",
+            "role": "article",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "Umstände",
+            "role": "object",
+            "correctCase": "accusative"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'durch'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Akkusativ"
+      },
+      {
+        "level": "C1",
+        "sentence": "Ungeachtet der Schwierigkeiten setzten wir unser Vorhaben fort.",
+        "parts": [
+          {
+            "word": "Ungeachtet",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Schwierigkeiten",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'ungeachtet'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "C1",
+        "sentence": "Die Bevölkerung des Landes litt unter der Dürre.",
+        "parts": [
+          {
+            "word": "Die",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Bevölkerung",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Landes",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'des Landes'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "C1",
+        "sentence": "Hinsichtlich der neuen Verordnung gibt es Bedenken.",
+        "parts": [
+          {
+            "word": "Hinsichtlich",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Verordnung",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'hinsichtlich'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "C1",
+        "sentence": "Zufolge des Berichts war der Schaden begrenzt.",
+        "parts": [
+          {
+            "word": "Zufolge",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Berichts",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'zufolge'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "C1",
+        "sentence": "Auf Kosten des Unternehmens wurde die Party gefeiert.",
+        "parts": [
+          {
+            "word": "Auf",
+            "role": "preposition",
+            "correctCase": "accusative"
+          },
+          {
+            "word": "des",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Unternehmens",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'des Unternehmens'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "C1",
+        "sentence": "Infolge der Stürme kam es zu Stromausfällen.",
+        "parts": [
+          {
+            "word": "Infolge",
+            "role": "preposition",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Stürme",
+            "role": "object",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'infolge'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "C1",
+        "sentence": "Dieser Beschluss bedarf Ihrer Zustimmung.",
+        "parts": [
+          {
+            "word": "Dieser",
+            "role": "article",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "Beschluss",
+            "role": "subject",
+            "correctCase": "nominative"
+          },
+          {
+            "word": "bedarf",
+            "role": "verb",
+            "correctCase": "none"
+          },
+          {
+            "word": "Ihrer",
+            "role": "possessive article",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall verlangt 'bedürfen'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      },
+      {
+        "level": "C1",
+        "sentence": "Zu Gunsten der Kinder wurde die Entscheidung getroffen.",
+        "parts": [
+          {
+            "word": "Zu",
+            "role": "preposition",
+            "correctCase": "dative"
+          },
+          {
+            "word": "der",
+            "role": "article",
+            "correctCase": "genitive"
+          },
+          {
+            "word": "Kinder",
+            "role": "possessor",
+            "correctCase": "genitive"
+          }
+        ],
+        "question": "Welchen Fall hat 'der Kinder'?",
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ",
+          "Genitiv"
+        ],
+        "correct": "Genitiv"
+      }
+    ]
+  }
+}
