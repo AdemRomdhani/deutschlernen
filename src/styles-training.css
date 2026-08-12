@@ -419,6 +419,13 @@
 .btn-back-home { background: var(--bg-soft); color: var(--text); border: 2px solid var(--border); }
 .btn-back-home:hover { border-color: #8b5cf6; }
 
+.btn-back {
+  padding: 10px 16px; border-radius: 10px; border: 2px solid var(--border);
+  background: var(--bg); color: var(--text); font-weight: 600; cursor: pointer;
+  transition: all 0.2s; margin-bottom: 16px; font-size: 14px;
+}
+.btn-back:hover { border-color: #8b5cf6; }
+
 /* ==========================================================================
    Business German
    ========================================================================== */
