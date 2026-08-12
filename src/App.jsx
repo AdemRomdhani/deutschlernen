@@ -12,6 +12,15 @@ import HörenExam from "./components/HörenExam.jsx";
 import LesenExam from "./components/LesenExam.jsx";
 import SchreibenExam from "./components/SchreibenExam.jsx";
 import OSDResult from "./components/OSDResult.jsx";
+import Dictation from "./components/Dictation.jsx";
+import GrammarDrills from "./components/GrammarDrills.jsx";
+import DailyChallenge from "./components/DailyChallenge.jsx";
+import PronunciationCoach from "./components/PronunciationCoach.jsx";
+import Flashcards from "./components/Flashcards.jsx";
+import SkillTree from "./components/SkillTree.jsx";
+import Analytics from "./components/Analytics.jsx";
+import ContextLearning from "./components/ContextLearning.jsx";
+import CulturalContext from "./components/CulturalContext.jsx";
 import MatchGame from "./components/games/MatchGame.jsx";
 import MemoryGame from "./components/games/MemoryGame.jsx";
 import BuilderGame from "./components/games/BuilderGame.jsx";
@@ -75,10 +84,65 @@ export default function App() {
     setOsdState({ level: osdState.level, module: null, score: null });
   };
 
+  // Training navigation
+  const openTraining = () => setNav(n => ({ ...n, view: "training" }));
+  const openDictation = () => setNav(n => ({ ...n, view: "dictation" }));
+  const openGrammar = () => setNav(n => ({ ...n, view: "grammar" }));
+  const openDaily = () => setNav(n => ({ ...n, view: "daily" }));
+  const openPronunciation = () => setNav(n => ({ ...n, view: "pronunciation" }));
+  const openFlashcards = () => setNav(n => ({ ...n, view: "flashcards" }));
+  const openSkillTree = () => setNav(n => ({ ...n, view: "skill-tree" }));
+  const openAnalytics = () => setNav(n => ({ ...n, view: "analytics" }));
+  const openContext = () => setNav(n => ({ ...n, view: "context" }));
+  const openCultural = () => setNav(n => ({ ...n, view: "cultural" }));
+  const backToTraining = () => setNav(n => ({ ...n, view: "training" }));
+  const backFromTraining = () => goHome();
+
   let content;
   switch (nav.view) {
     case "home":
-      content = <Home onOpenLevel={(idx) => openLevel(idx)} onReview={openReview} onOpenOSD={openOSD} />;
+      content = <Home onOpenLevel={(idx) => openLevel(idx)} onReview={openReview} onOpenOSD={openOSD} onOpenTraining={openTraining} onOpenSkillTree={openSkillTree} onOpenAnalytics={openAnalytics} onOpenCultural={openCultural} />;
+      break;
+    case "training":
+      content = (
+        <div className="training-hub">
+          <button className="btn-back" onClick={backFromTraining}>← رجوع</button>
+          <h2>🏋️ التدريبات</h2>
+          <p>اختر تدريباً لتحسين مهاراتك</p>
+          <div className="training-grid">
+            <div className="training-card" onClick={openDictation}>
+              <span className="training-icon">🎧</span>
+              <span className="training-name">Dictation</span>
+              <span className="training-ar">الكتابة بالاستماع</span>
+            </div>
+            <div className="training-card" onClick={openGrammar}>
+              <span className="training-icon">📝</span>
+              <span className="training-name">Grammar Drills</span>
+              <span className="training-ar">تدريبات القواعد</span>
+            </div>
+            <div className="training-card" onClick={openDaily}>
+              <span className="training-icon">📅</span>
+              <span className="training-name">Daily Challenge</span>
+              <span className="training-ar">تحدي اليوم</span>
+            </div>
+            <div className="training-card" onClick={openPronunciation}>
+              <span className="training-icon">🎤</span>
+              <span className="training-name">Pronunciation</span>
+              <span className="training-ar">تدريب النطق</span>
+            </div>
+            <div className="training-card" onClick={openFlashcards}>
+              <span className="training-icon">🃏</span>
+              <span className="training-name">Flashcards</span>
+              <span className="training-ar">بطاقات المراجعة</span>
+            </div>
+            <div className="training-card" onClick={openContext}>
+              <span className="training-icon">📖</span>
+              <span className="training-name">Context Learning</span>
+              <span className="training-ar">تعلم السياق</span>
+            </div>
+          </div>
+        </div>
+      );
       break;
     case "level":
       content = <Level levelIdx={nav.level} onBack={backFromLevel} onOpenLesson={openLesson} onOpenGame={openGame} onStartExam={startExam} />;
@@ -114,6 +178,33 @@ export default function App() {
       break;
     case "osd-result":
       content = <OSDResult level={osdState.level} module={osdState.module} score={osdState.score} onBack={goHome} onRetry={retryOSD} />;
+      break;
+    case "dictation":
+      content = <Dictation levelIdx={nav.level} onBack={backToTraining} onComplete={(score) => { recordExam("dictation", score); goHome(); }} />;
+      break;
+    case "grammar":
+      content = <GrammarDrills levelIdx={nav.level} onBack={backToTraining} onComplete={(score, xp) => { recordExam("grammar", score); goHome(); }} />;
+      break;
+    case "daily":
+      content = <DailyChallenge levelIdx={nav.level} onBack={backToTraining} onComplete={(score) => { recordExam("daily", score); goHome(); }} />;
+      break;
+    case "pronunciation":
+      content = <PronunciationCoach levelIdx={nav.level} onBack={backToTraining} onComplete={(score) => { recordExam("pronunciation", score); goHome(); }} />;
+      break;
+    case "flashcards":
+      content = <Flashcards levelIdx={nav.level} onBack={backToTraining} onComplete={(score) => { recordExam("flashcards", score); goHome(); }} />;
+      break;
+    case "skill-tree":
+      content = <SkillTree onBack={goHome} onOpenLevel={openLevel} />;
+      break;
+    case "analytics":
+      content = <Analytics onBack={goHome} />;
+      break;
+    case "context":
+      content = <ContextLearning levelIdx={nav.level} onBack={backToTraining} onComplete={(score) => goHome()} />;
+      break;
+    case "cultural":
+      content = <CulturalContext onBack={goHome} />;
       break;
     default:
       content = null;

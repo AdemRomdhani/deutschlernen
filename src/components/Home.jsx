@@ -139,7 +139,7 @@ function Badges() {
   );
 }
 
-export default function Home({ onOpenLevel, onReview, onOpenOSD }) {
+export default function Home({ onOpenLevel, onReview, onOpenOSD, onOpenTraining, onOpenSkillTree, onOpenAnalytics, onOpenCultural }) {
   const progress = useProgress();
 
   return (
@@ -157,7 +157,7 @@ export default function Home({ onOpenLevel, onReview, onOpenOSD }) {
               const first = LEVELS.findIndex((l, i) => isLevelUnlocked(progress, i));
               onOpenLevel(Math.max(first - 1, 0));
             }}>🚀 ابدأ رحلتك</button>
-            <button className="btn btn-ghost btn-lg" onClick={() => onOpenLevel(0, "games")}>🎮 جرّب الألعاب</button>
+            <button className="btn btn-ghost btn-lg" onClick={onOpenTraining}>🏋️ التدريبات</button>
           </div>
         </div>
         <div className="hero-art" aria-hidden="true">
@@ -192,7 +192,7 @@ export default function Home({ onOpenLevel, onReview, onOpenOSD }) {
 
       <ReviewPrompt onReview={onReview} />
 
-      <div className="section osd-banner-section">
+      <div className="section banners-section">
         <div className="osd-banner" onClick={onOpenOSD} role="button" tabIndex={0}>
           <div className="osd-banner-icon">🎓</div>
           <div className="osd-banner-text">
@@ -200,6 +200,27 @@ export default function Home({ onOpenLevel, onReview, onOpenOSD }) {
             <p>اختبر مستواك في التحدث والاستماع والقراءة والكتابة</p>
           </div>
           <div className="osd-banner-arrow">←</div>
+        </div>
+      </div>
+
+      <div className="section quick-access">
+        <div className="quick-grid">
+          <div className="quick-card" onClick={onOpenTraining}>
+            <span className="quick-icon">🏋️</span>
+            <span className="quick-name">التدريبات</span>
+          </div>
+          <div className="quick-card" onClick={onOpenSkillTree}>
+            <span className="quick-icon">🌳</span>
+            <span className="quick-name">شجرة المهارات</span>
+          </div>
+          <div className="quick-card" onClick={onOpenAnalytics}>
+            <span className="quick-icon">📊</span>
+            <span className="quick-name">التحليلات</span>
+          </div>
+          <div className="quick-card" onClick={onOpenCultural}>
+            <span className="quick-icon">🇩🇪</span>
+            <span className="quick-name">الثقافة</span>
+          </div>
         </div>
       </div>
 
