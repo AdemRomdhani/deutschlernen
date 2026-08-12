@@ -33,6 +33,29 @@
   --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
+[data-theme="dark"] body,
+[data-theme="dark"] .btn,
+[data-theme="dark"] .btn-ghost,
+[data-theme="dark"] button,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+[data-theme="dark"] .tab,
+[data-theme="dark"] .training-card,
+[data-theme="dark"] .training-name,
+[data-theme="dark"] .training-ar,
+[data-theme="dark"] h1, [data-theme="dark"] h2,
+[data-theme="dark"] h3, [data-theme="dark"] h4,
+[data-theme="dark"] p, [data-theme="dark"] span,
+[data-theme="dark"] div, [data-theme="dark"] label,
+[data-theme="dark"] strong {
+  color: var(--text);
+}
+
+[data-theme="dark"] .training-ar,
+[data-theme="dark"] .stat-desc,
+[data-theme="dark"] p { color: var(--text-soft); }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
