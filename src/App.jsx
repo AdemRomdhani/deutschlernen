@@ -21,6 +21,9 @@ import SkillTree from "./components/SkillTree.jsx";
 import Analytics from "./components/Analytics.jsx";
 import ContextLearning from "./components/ContextLearning.jsx";
 import CulturalContext from "./components/CulturalContext.jsx";
+import BusinessGerman from "./components/BusinessGerman.jsx";
+import ShadowingTechnique from "./components/ShadowingTechnique.jsx";
+import RealWorldContent from "./components/RealWorldContent.jsx";
 import MatchGame from "./components/games/MatchGame.jsx";
 import MemoryGame from "./components/games/MemoryGame.jsx";
 import BuilderGame from "./components/games/BuilderGame.jsx";
@@ -95,13 +98,16 @@ export default function App() {
   const openAnalytics = () => setNav(n => ({ ...n, view: "analytics" }));
   const openContext = () => setNav(n => ({ ...n, view: "context" }));
   const openCultural = () => setNav(n => ({ ...n, view: "cultural" }));
+  const openBusiness = () => setNav(n => ({ ...n, view: "business" }));
+  const openShadowing = () => setNav(n => ({ ...n, view: "shadowing" }));
+  const openRealWorld = () => setNav(n => ({ ...n, view: "realworld" }));
   const backToTraining = () => setNav(n => ({ ...n, view: "training" }));
   const backFromTraining = () => goHome();
 
   let content;
   switch (nav.view) {
     case "home":
-      content = <Home onOpenLevel={(idx) => openLevel(idx)} onReview={openReview} onOpenOSD={openOSD} onOpenTraining={openTraining} onOpenSkillTree={openSkillTree} onOpenAnalytics={openAnalytics} onOpenCultural={openCultural} />;
+      content = <Home onOpenLevel={(idx) => openLevel(idx)} onReview={openReview} onOpenOSD={openOSD} onOpenTraining={openTraining} onOpenSkillTree={openSkillTree} onOpenAnalytics={openAnalytics} onOpenCultural={openCultural} onOpenBusiness={openBusiness} onOpenShadowing={openShadowing} onOpenRealWorld={openRealWorld} />;
       break;
     case "training":
       content = (
@@ -139,6 +145,21 @@ export default function App() {
               <span className="training-icon">📖</span>
               <span className="training-name">Context Learning</span>
               <span className="training-ar">تعلم السياق</span>
+            </div>
+            <div className="training-card" onClick={openShadowing}>
+              <span className="training-icon">🗣️</span>
+              <span className="training-name">Shadowing</span>
+              <span className="training-ar">تقنية الشادوينج</span>
+            </div>
+            <div className="training-card" onClick={openRealWorld}>
+              <span className="training-icon">📰</span>
+              <span className="training-name">Real Content</span>
+              <span className="training-ar">محتوى حقيقي</span>
+            </div>
+            <div className="training-card" onClick={openBusiness}>
+              <span className="training-icon">💼</span>
+              <span className="training-name">Business German</span>
+              <span className="training-ar">الألمانية المهنية</span>
             </div>
           </div>
         </div>
@@ -205,6 +226,15 @@ export default function App() {
       break;
     case "cultural":
       content = <CulturalContext onBack={goHome} />;
+      break;
+    case "business":
+      content = <BusinessGerman level={LEVELS[nav.level]} goBack={backToTraining} />;
+      break;
+    case "shadowing":
+      content = <ShadowingTechnique level={LEVELS[nav.level]} goBack={backToTraining} />;
+      break;
+    case "realworld":
+      content = <RealWorldContent level={LEVELS[nav.level]} goBack={backToTraining} />;
       break;
     default:
       content = null;

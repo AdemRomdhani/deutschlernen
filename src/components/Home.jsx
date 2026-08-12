@@ -139,7 +139,7 @@ function Badges() {
   );
 }
 
-export default function Home({ onOpenLevel, onReview, onOpenOSD, onOpenTraining, onOpenSkillTree, onOpenAnalytics, onOpenCultural }) {
+export default function Home({ onOpenLevel, onReview, onOpenOSD, onOpenTraining, onOpenSkillTree, onOpenAnalytics, onOpenCultural, onOpenBusiness, onOpenShadowing, onOpenRealWorld }) {
   const progress = useProgress();
 
   return (
@@ -220,6 +220,18 @@ export default function Home({ onOpenLevel, onReview, onOpenOSD, onOpenTraining,
           <div className="quick-card" onClick={onOpenCultural}>
             <span className="quick-icon">🇩🇪</span>
             <span className="quick-name">الثقافة</span>
+          </div>
+          <div className="quick-card" onClick={onOpenBusiness}>
+            <span className="quick-icon">💼</span>
+            <span className="quick-name">الألمانية المهنية</span>
+          </div>
+          <div className="quick-card" onClick={onOpenShadowing}>
+            <span className="quick-icon">🗣️</span>
+            <span className="quick-name">تقنية الشادوينج</span>
+          </div>
+          <div className="quick-card" onClick={onOpenRealWorld}>
+            <span className="quick-icon">📰</span>
+            <span className="quick-name">محتوى حقيقي</span>
           </div>
         </div>
       </div>
