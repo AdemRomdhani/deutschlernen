@@ -1,71 +1,17 @@
 /* ==========================================================================
    DeutschLernen — German Pronunciation
-   Fetches German TTS audio as a blob (bypasses CORS), plays natively.
-   Fallback: Web Speech API only with a confirmed de-DE voice.
+   Primary: Google Translate TTS audio (native German voice)
+   Fallback: Web Speech API with de-DE voice
    ========================================================================== */
 
 let currentAudio = null;
-let currentBlobUrl = null;
 let germanVoice = null;
 
-/* ---------------- Google TTS via fetch (blob) ---------------- */
-
-async function fetchTTSBlob(text) {
-  const urls = [
-    `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=de&q=${encodeURIComponent(text)}`,
-    `https://translate.google.com/translate_tts?ie=UTF-8&tl=de&client=dict-chrome-ex&q=${encodeURIComponent(text)}`,
-  ];
-  for (const url of urls) {
-    try {
-      const res = await fetch(url, { referrerPolicy: "no-referrer" });
-      if (res.ok) {
-        const blob = await res.blob();
-        if (blob.size > 500) return blob;
-      }
-    } catch (e) { /* try next */ }
-  }
-  return null;
+function ttsUrl(text) {
+  return `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=de&q=${encodeURIComponent(text)}`;
 }
 
-function playBlob(blob, onDone) {
-  return new Promise((resolve) => {
-    // cleanup previous blob url
-    if (currentBlobUrl) { URL.revokeObjectURL(currentBlobUrl); currentBlobUrl = null; }
-
-    let audio;
-    try {
-      currentBlobUrl = URL.createObjectURL(blob);
-      audio = new Audio(currentBlobUrl);
-      audio.preload = "auto";
-    } catch (e) {
-      resolve(false);
-      return;
-    }
-    currentAudio = audio;
-    const cleanup = (ok) => {
-      audio.onended = null;
-      audio.onerror = null;
-      if (currentAudio === audio) currentAudio = null;
-      if (onDone) onDone(ok);
-      resolve(ok);
-    };
-    audio.onended = () => cleanup(true);
-    audio.onerror = () => cleanup(false);
-    const p = audio.play();
-    if (p && p.catch) p.catch(() => cleanup(false));
-  });
-}
-
-async function speakGoogle(text, onDone) {
-  const blob = await fetchTTSBlob(text);
-  if (blob) {
-    playBlob(blob, onDone);
-    return true;
-  }
-  return false;
-}
-
-/* ---------------- Web Speech API (only de-DE voice) ---------------- */
+/* ---------------- Voice loading ---------------- */
 
 function loadVoices() {
   try {
@@ -92,7 +38,30 @@ if (typeof window !== "undefined" && "speechSynthesis" in window) {
   setTimeout(loadVoices, 3000);
 }
 
-function playWebSpeech(text, onDone) {
+/* ---------------- Audio playback ---------------- */
+
+function playAudio(text, onDone) {
+  try {
+    const audio = new Audio();
+    audio.referrerPolicy = "no-referrer";
+    audio.src = ttsUrl(text);
+    currentAudio = audio;
+
+    audio.onended = () => { currentAudio = null; if (onDone) onDone(true); };
+    audio.onerror = () => { currentAudio = null; if (onDone) onDone(false); };
+
+    const p = audio.play();
+    if (p && p.catch) p.catch(() => { currentAudio = null; if (onDone) onDone(false); });
+    return true;
+  } catch (e) {
+    if (onDone) onDone(false);
+    return false;
+  }
+}
+
+/* ---------------- Web Speech API ---------------- */
+
+function playSpeech(text, onDone) {
   if (!germanVoice) { if (onDone) onDone(false); return false; }
   try {
     window.speechSynthesis.cancel();
@@ -116,13 +85,13 @@ export function speakGerman(text, onDone) {
   if (!text) { if (onDone) onDone(false); return false; }
   stopSpeaking();
 
-  // 1st: Google TTS via fetch (native German voice, bypasses CORS)
-  if (typeof fetch !== "undefined") {
-    speakGoogle(text, (ok) => {
+  // 1st: Google TTS (native German)
+  if (typeof Audio !== "undefined") {
+    playAudio(text, (ok) => {
       if (ok) {
         if (onDone) onDone(true);
       } else if (germanVoice) {
-        playWebSpeech(text, onDone);
+        playSpeech(text, onDone);
       } else if (onDone) {
         onDone(false);
       }
@@ -130,8 +99,8 @@ export function speakGerman(text, onDone) {
     return true;
   }
 
-  // Fallback: Web Speech only with confirmed de-DE voice
-  if (germanVoice) return playWebSpeech(text, onDone);
+  // Fallback: Web Speech with de-DE voice only
+  if (germanVoice) return playSpeech(text, onDone);
   if (onDone) onDone(false);
   return false;
 }
@@ -140,12 +109,11 @@ export function stopSpeaking() {
   if (currentAudio) {
     try { currentAudio.pause(); currentAudio = null; } catch (e) {}
   }
-  if (currentBlobUrl) { URL.revokeObjectURL(currentBlobUrl); currentBlobUrl = null; }
   if (typeof window !== "undefined" && "speechSynthesis" in window) {
     try { window.speechSynthesis.cancel(); } catch (e) {}
   }
 }
 
 export function speechSupported() {
-  return typeof fetch !== "undefined" || (typeof window !== "undefined" && "speechSynthesis" in window);
+  return typeof Audio !== "undefined" || (typeof window !== "undefined" && "speechSynthesis" in window);
 }
