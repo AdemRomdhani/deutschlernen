@@ -53,7 +53,7 @@ function loadVoices() {
   try {
     if (!("speechSynthesis" in window)) return;
     const voices = window.speechSynthesis.getVoices();
-    germanVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith("de")) || null;
+    germanVoice = voices.find(v => v.lang && v.lang.toLowerCase() === "de-de") || voices.find(v => v.lang && v.lang.toLowerCase().startsWith("de-de")) || voices.find(v => v.lang && v.lang.toLowerCase().startsWith("de")) || null;
   } catch (e) {
     germanVoice = null;
   }

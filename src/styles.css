@@ -597,7 +597,7 @@ body::before {
   background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 30px; text-align: center; margin-bottom: 20px; box-shadow: var(--shadow-sm);
 }
-.tf-card .tf-de { font-family: var(--font-la); font-weight: 800; font-size: 34px; direction: ltr; margin-bottom: 6px; }
+.tf-card .tf-de { font-family: var(--font-la); font-weight: 800; font-size: 34px; direction: ltr; margin-bottom: 6px; color: var(--text); }
 .tf-card .tf-ar { font-size: 22px; font-weight: 800; color: var(--text-soft); }
 .tf-card .tf-question { margin-top: 14px; font-weight: 800; font-size: 16px; color: var(--text-soft); }
 .tf-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
