@@ -1,7 +1,7 @@
 /* ==========================================================================
    DeutschLernen — German Pronunciation
-   Primary: Google Translate TTS audio (native German voice)
-   Fallback: Web Speech API with de-DE voice
+   Google Translate TTS audio (native German voice, correct accent).
+   Fallback: Web Speech API with de-DE voice only.
    ========================================================================== */
 
 let currentAudio = null;
@@ -38,70 +38,73 @@ if (typeof window !== "undefined" && "speechSynthesis" in window) {
   setTimeout(loadVoices, 3000);
 }
 
-/* ---------------- Audio playback ---------------- */
+/* ---------------- Google TTS via Audio ---------------- */
 
-function playAudio(text, onDone) {
+function playGoogleTTS(text, opts = {}) {
+  const { rate, onStart, onEnd } = opts;
   try {
     const audio = new Audio();
     audio.referrerPolicy = "no-referrer";
     audio.src = ttsUrl(text);
     currentAudio = audio;
 
-    audio.onended = () => { currentAudio = null; if (onDone) onDone(true); };
-    audio.onerror = () => { currentAudio = null; if (onDone) onDone(false); };
+    audio.onplay = () => { if (onStart) onStart(); };
+    audio.onended = () => { currentAudio = null; if (onEnd) onEnd(true); };
+    audio.onerror = () => { currentAudio = null; if (onEnd) onEnd(false); };
 
     const p = audio.play();
-    if (p && p.catch) p.catch(() => { currentAudio = null; if (onDone) onDone(false); });
+    if (p && p.catch) p.catch(() => { currentAudio = null; if (onEnd) onEnd(false); });
     return true;
   } catch (e) {
-    if (onDone) onDone(false);
+    if (onEnd) onEnd(false);
     return false;
   }
 }
 
-/* ---------------- Web Speech API ---------------- */
+/* ---------------- Web Speech API (de-DE voice only) ---------------- */
 
-function playSpeech(text, onDone) {
-  if (!germanVoice) { if (onDone) onDone(false); return false; }
+function playWebSpeech(text, opts = {}) {
+  const { rate = 0.85, onStart, onEnd } = opts;
+  if (!germanVoice) { if (onEnd) onEnd(false); return false; }
   try {
     window.speechSynthesis.cancel();
     const utter = new SpeechSynthesisUtterance(text);
     utter.lang = "de-DE";
     utter.voice = germanVoice;
-    utter.rate = 0.85;
+    utter.rate = rate;
     utter.pitch = 1;
-    if (onDone) {
-      utter.onend = () => onDone(true);
-      utter.onerror = () => onDone(false);
+    if (onStart) utter.onstart = () => onStart();
+    if (onEnd) {
+      utter.onend = () => onEnd(true);
+      utter.onerror = () => onEnd(false);
     }
     window.speechSynthesis.speak(utter);
     return true;
-  } catch (e) { if (onDone) onDone(false); return false; }
+  } catch (e) { if (onEnd) onEnd(false); return false; }
 }
 
 /* ---------------- Public API ---------------- */
 
-export function speakGerman(text, onDone) {
-  if (!text) { if (onDone) onDone(false); return false; }
+/**
+ * Speak German with correct native accent.
+ * @param {string} text - German text to speak
+ * @param {object} [opts] - { rate, onStart, onEnd }
+ */
+export function speakGerman(text, opts = {}) {
+  // If called with a function as second arg (legacy), treat as onEnd
+  if (typeof opts === "function") opts = { onEnd: opts };
+
+  if (!text) { if (opts.onEnd) opts.onEnd(false); return false; }
   stopSpeaking();
 
   // 1st: Google TTS (native German)
   if (typeof Audio !== "undefined") {
-    playAudio(text, (ok) => {
-      if (ok) {
-        if (onDone) onDone(true);
-      } else if (germanVoice) {
-        playSpeech(text, onDone);
-      } else if (onDone) {
-        onDone(false);
-      }
-    });
-    return true;
+    return playGoogleTTS(text, opts);
   }
 
-  // Fallback: Web Speech with de-DE voice only
-  if (germanVoice) return playSpeech(text, onDone);
-  if (onDone) onDone(false);
+  // 2nd: Web Speech with confirmed de-DE voice
+  if (germanVoice) return playWebSpeech(text, opts);
+  if (opts.onEnd) opts.onEnd(false);
   return false;
 }
 

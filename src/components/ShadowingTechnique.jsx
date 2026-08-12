@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { speakGerman, stopSpeaking } from '../speech.js';
 
 const shadowingData = [
   {
@@ -93,16 +94,11 @@ export default function ShadowingTechnique({ level, goBack }) {
 
   const speakSentence = (sentence) => {
     return new Promise((resolve) => {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(sentence.de);
-        utterance.lang = 'de-DE';
-        utterance.rate = sentence.speed || 1.0;
-        utterance.onend = resolve;
-        window.speechSynthesis.speak(utterance);
-      } else {
-        resolve();
-      }
+      stopSpeaking();
+      speakGerman(sentence.de, {
+        rate: sentence.speed || 1.0,
+        onEnd: () => resolve(),
+      });
     });
   };
 

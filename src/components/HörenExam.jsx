@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { HÖREN } from "../osdData.js";
+import { speakGerman, stopSpeaking } from "../speech.js";
 
 export default function HörenExam({ level, onBack, onComplete }) {
   const data = HÖREN[level];
@@ -26,15 +27,12 @@ export default function HörenExam({ level, onBack, onComplete }) {
   const formatTime = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 
   const speak = (text) => {
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "de-DE";
-      utterance.rate = 0.85;
-      utterance.onstart = () => setIsPlaying(true);
-      utterance.onend = () => setIsPlaying(false);
-      window.speechSynthesis.speak(utterance);
-    }
+    stopSpeaking();
+    speakGerman(text, {
+      rate: 0.85,
+      onStart: () => setIsPlaying(true),
+      onEnd: () => setIsPlaying(false),
+    });
   };
 
   const getTeilQuestionCount = (teilNum) => {

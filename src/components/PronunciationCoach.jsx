@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { LEVELS, shuffle } from "../data.js";
+import { speakGerman } from "../speech.js";
 
 export default function PronunciationCoach({ levelIdx, onBack, onComplete }) {
   const level = LEVELS[levelIdx]?.code || "A1";
@@ -25,13 +26,7 @@ export default function PronunciationCoach({ levelIdx, onBack, onComplete }) {
   }, []);
 
   const speak = (text) => {
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = "de-DE";
-      u.rate = 0.7;
-      window.speechSynthesis.speak(u);
-    }
+    speakGerman(text, { rate: 0.7 });
   };
 
   const levenshtein = (a, b) => {

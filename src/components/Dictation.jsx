@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { LEVELS, shuffle } from "../data.js";
+import { speakGerman, stopSpeaking } from "../speech.js";
 
 const DICTATION_SENTENCES = {
   A1: [
@@ -75,15 +76,12 @@ export default function Dictation({ levelIdx, onBack, onComplete }) {
   }, [currentQ, showResult]);
 
   const speak = (text, rate = speed) => {
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = "de-DE";
-      u.rate = rate;
-      u.onstart = () => setIsPlaying(true);
-      u.onend = () => setIsPlaying(false);
-      window.speechSynthesis.speak(u);
-    }
+    stopSpeaking();
+    speakGerman(text, {
+      rate,
+      onStart: () => setIsPlaying(true),
+      onEnd: () => setIsPlaying(false),
+    });
   };
 
   const normalize = (s) => s.toLowerCase().replace(/[.,!?;:'"]/g, "").replace(/\s+/g, " ").trim();
